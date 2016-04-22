@@ -41,11 +41,6 @@ func main() {
 
 	app := cli.NewApp()
 	app.Name = "Gogs Cli"
-	app.Flags = []cli.Flag{
-		cli.StringFlag{
-			Name: "repository, r",
-		},
-	}
 	app.Commands = []cli.Command{
 		{
 			Name: "issue",
@@ -54,10 +49,7 @@ func main() {
 					Name: "add",
 					Flags: []cli.Flag{
 						cli.StringFlag{
-							Name: "title",
-						},
-						cli.StringFlag{
-							Name: "body",
+							Name: "assignee",
 						},
 					},
 					Action: cliactions.IssueAdd(auth),
