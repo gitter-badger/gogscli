@@ -8,6 +8,14 @@ instance.
 
 ## Issue
 
+### List issues
+
+```bash
+./gogscli issue list user/repo
+```
+
+### Add issue
+
 ```bash
 # syntax
 ./gogscli issue add user/repo "Issue title" ["Optional issue body"] [--assignee=optionalassignee]

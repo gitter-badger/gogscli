@@ -54,6 +54,10 @@ func main() {
 					},
 					Action: cliactions.IssueAdd(auth),
 				},
+				{
+					Name:   "list",
+					Action: cliactions.IssueList(auth),
+				},
 			},
 		},
 	}
