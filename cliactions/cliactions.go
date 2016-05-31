@@ -4,23 +4,19 @@ import (
 	"bytes"
 	"fmt"
 	"net/http"
+
+	"github.com/andreynering/gogscli/config"
 )
 
 const (
-	contentTypeJson = "application/json"
+	contentTypeJSON = "application/json"
 )
 
-type Auth struct {
-	URL      string
-	User     string
-	Password string
-}
-
-func newRequestContext(method, url string, data []byte, auth Auth) (r *http.Request, client *http.Client) {
-	url = fmt.Sprintf("%s%s", auth.URL, url)
+func newRequestContext(method, url string, data []byte, cfg config.Config) (r *http.Request, client *http.Client) {
+	url = fmt.Sprintf("%s%s", cfg.Remote.URL, url)
 	r, _ = http.NewRequest(method, url, bytes.NewReader(data))
-	r.Header.Add("Content-Type", contentTypeJson)
-	r.SetBasicAuth(auth.User, auth.Password)
+	r.Header.Add("Content-Type", contentTypeJSON)
+	r.Header.Add("Authorization", fmt.Sprintf("token %s", cfg.Auth.Token))
 	client = &http.Client{}
 	return
 }
