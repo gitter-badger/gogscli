@@ -1,5 +1,7 @@
 # Gogs Cli
 
+[![Join the chat at https://gitter.im/andreynering/gogscli](https://badges.gitter.im/andreynering/gogscli.svg)](https://gitter.im/andreynering/gogscli?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > This is an experimental project. By now it's just a proof of concept.
 
 An attempt to create a command line tool to interact with a [Gogs][gogs]
